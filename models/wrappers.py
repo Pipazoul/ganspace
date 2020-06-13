@@ -22,6 +22,12 @@ from . import stylegan
 from . import stylegan2
 from abc import abstractmethod, ABC as AbstractBaseClass
 
+import json 
+# Getting configuration params
+with open('../model_config.json') as json_data_file:
+    conf = json.load(json_data_file)
+
+
 class BaseModel(AbstractBaseClass, torch.nn.Module):
 
     # Set parameters for identifying model from instance
@@ -101,18 +107,7 @@ class StyleGAN2(BaseModel):
         self.w_primary = use_w # use W as primary latent space?
 
         # Image widths
-        configs = {
-            # Converted NVIDIA official
-            'ffhq': 1024,
-            'car': 512,
-            'cat': 256,
-            'church': 256,
-            'horse': 256,
-            # Tuomas
-            'bedrooms': 256,
-            'kitchen': 256,
-            'places': 256,
-        }
+        configs = conf["configs"]
 
         assert self.outclass in configs, \
             f'Invalid StyleGAN2 class {self.outclass}, should be one of [{", ".join(configs.keys())}]'
@@ -134,16 +129,7 @@ class StyleGAN2(BaseModel):
 
     # URLs created with https://sites.google.com/site/gdocs2direct/
     def download_checkpoint(self, outfile):
-        checkpoints = {
-            'horse': 'https://drive.google.com/uc?export=download&id=18SkqWAkgt0fIwDEf2pqeaenNi4OoCo-0',
-            'ffhq': 'https://drive.google.com/uc?export=download&id=1FJRwzAkV-XWbxgTwxEmEACvuqF5DsBiV',
-            'church': 'https://drive.google.com/uc?export=download&id=1HFM694112b_im01JT7wop0faftw9ty5g',
-            'car': 'https://drive.google.com/uc?export=download&id=1iRoWclWVbDBAy5iXYZrQnKYSbZUqXI6y',
-            'cat': 'https://drive.google.com/uc?export=download&id=15vJP8GDr0FlRYpE8gD7CdeEz2mXrQMgN',
-            'places': 'https://drive.google.com/uc?export=download&id=1X8-wIH3aYKjgDZt4KMOtQzN1m4AlCVhm',
-            'bedrooms': 'https://drive.google.com/uc?export=download&id=1nZTW7mjazs-qPhkmbsOLLA_6qws-eNQu',
-            'kitchen': 'https://drive.google.com/uc?export=download&id=15dCpnZ1YLAnETAPB0FGmXwdBclbwMEkZ'
-        }
+        checkpoints = conf["checkpoints"]
 
         url = checkpoints[self.outclass]
         download_ckpt(url, outfile)
