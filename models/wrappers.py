@@ -24,7 +24,7 @@ from abc import abstractmethod, ABC as AbstractBaseClass
 
 import json 
 # Getting configuration params
-with open('../model_config.json') as json_data_file:
+with open('./model_config.json') as json_data_file:
     conf = json.load(json_data_file)
 
 
