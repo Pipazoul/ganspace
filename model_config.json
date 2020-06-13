@@ -3,7 +3,7 @@
             "mymodel" : 1024
     },
      "checkpoints" : {
-            "mymodel": "path/to/my/pytorch/model"
+            "mymodel": "https://drive.google.com/uc?export=download&id=G_DRIVE_FILE_ID"
 
     }
 }
