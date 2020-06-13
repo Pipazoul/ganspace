@@ -1,26 +1,9 @@
-
 {
-     "configs" = {
-            # Converted NVIDIA official
-            'mymodel' : 1024,
-            'ffhq': 1024,
-            'car': 512,
-            'cat': 256,
-            'church': 256,
-            'horse': 256,
-            # Tuomas
-            'bedrooms': 256,
-            'kitchen': 256,
-            'places': 256,
+     "configs" : {
+            "mymodel" : 1024
     },
-     "checkpoints" = {
-            'horse': 'https://drive.google.com/uc?export=download&id=18SkqWAkgt0fIwDEf2pqeaenNi4OoCo-0',
-            'ffhq': 'https://drive.google.com/uc?export=download&id=1FJRwzAkV-XWbxgTwxEmEACvuqF5DsBiV',
-            'church': 'https://drive.google.com/uc?export=download&id=1HFM694112b_im01JT7wop0faftw9ty5g',
-            'car': 'https://drive.google.com/uc?export=download&id=1iRoWclWVbDBAy5iXYZrQnKYSbZUqXI6y',
-            'cat': 'https://drive.google.com/uc?export=download&id=15vJP8GDr0FlRYpE8gD7CdeEz2mXrQMgN',
-            'places': 'https://drive.google.com/uc?export=download&id=1X8-wIH3aYKjgDZt4KMOtQzN1m4AlCVhm',
-            'bedrooms': 'https://drive.google.com/uc?export=download&id=1nZTW7mjazs-qPhkmbsOLLA_6qws-eNQu',
-            'kitchen': 'https://drive.google.com/uc?export=download&id=15dCpnZ1YLAnETAPB0FGmXwdBclbwMEkZ'
+     "checkpoints" : {
+            "mymodel": "path/to/my/pytorch/model"
+
     }
 }
